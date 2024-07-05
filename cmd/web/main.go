@@ -18,7 +18,7 @@ func main() {
 	flag.Parse()
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
-	//initialize a new application containing the dependacies
+	//initialize a new application containing the dependencies
 	app := &application{
 
 		errorLog: errorLog,
@@ -34,8 +34,9 @@ func main() {
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
 	srv := &http.Server{
-		Addr: *addr, ErrorLog: errorLog,
-		Handler: mux,
+		Addr:     *addr,
+		ErrorLog: errorLog,
+		Handler:  mux,
 	}
 
 	infoLog.Printf("Starting server on %s", *addr)
