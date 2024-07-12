@@ -63,6 +63,6 @@ func (app *application) createSnippet(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, fmt.Sprint("/snippet?id=%d", id), http.StatusSeeOther)
+	http.Redirect(w, r, fmt.Sprintf("/snippet?id=%d", id), http.StatusSeeOther)
 
 }
